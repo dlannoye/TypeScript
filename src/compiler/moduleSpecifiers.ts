@@ -316,9 +316,8 @@ namespace ts.moduleSpecifiers {
                 }
             });
         });
-        return result || (preferSymlinks
-            ? forEach(targets, p => containsIgnoredPath(p) ? undefined : cb(p, p === referenceRedirect))
-            : undefined);
+        return result ||
+            (preferSymlinks ? forEach(targets, p => cb(p, p === referenceRedirect)) : undefined);
     }
 
     interface ModulePath {
